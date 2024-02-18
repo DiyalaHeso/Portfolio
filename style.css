@@ -1,0 +1,425 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+:root {
+    --bg-color: #fff;
+    --header-bg-color: rgba(239, 247, 248, 0.7);
+    --logo-color: #0a84a1;
+    --hover-color: #dddd50;
+    --bg-image: url(images/background.jpg);
+    
+}
+body {
+    background: var(--bg-image) no-repeat ;
+    background-size: cover;
+    background-attachment: fixed;
+    
+}
+
+
+header {
+    
+    background-color: rgba(0, 0, 0, .1);
+    backdrop-filter: blur(20px);
+    width: 100%;
+    position: fixed;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 100px;
+}
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgb(255, 255, 255, .4), transparent);
+    transition: .5s;
+    
+}
+header:hover::before {
+    left: 100%;
+}
+header a {
+    text-decoration: none;
+}
+.logo {
+    
+    text-transform: uppercase;
+    color: var(--logo-color);
+    font-weight: 700;
+    font-size: 1.8em;
+}
+.navigation a {
+    position: relative;
+    color: var(--logo-color);
+    font-size: 1.1em;
+    font-weight: 500;
+    margin-left: 15px;
+    transition: .5s;
+    padding: 5px 10px;
+}
+
+.toggle {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    display: none;
+}
+.toggle span {
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background-color: var(--logo-color);
+    border-radius: 10px;
+    transition: 0.5s;
+    
+}
+.toggle span:nth-child(1) {
+    transform: translateY(-15px);
+    width: 80%;
+    left: 20%;
+}
+.toggle.active span:nth-child(1) {
+    width: 100%;
+    transform: translateY(0px) rotate(45deg);
+    left: 0;
+}
+.toggle span:nth-child(2) {
+    transform: translateY(15px);
+    width: 60%;
+    left: 40%;
+}
+.toggle.active span:nth-child(2) {
+    width: 100%;
+    transform: translateY(0px) rotate(315deg);
+    left: 0;
+}
+.toggle.active span:nth-child(3) {
+    transform: translateY(60px);
+}
+
+.navigation a:hover {
+    
+    color: #19bae2;
+    
+}
+.navigation a span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    border-bottom: 3px solid #19bae2;
+    border-radius: 10px;
+    transform: scale(0) translateY(50px);
+    transition: .5s;
+}
+.navigation a:hover span {
+    transform: scale(1) translateY(0);
+}
+
+section {
+    padding: 115px 100px;
+    
+    
+}
+.main-sec {
+    width: 100%;
+    color: var(--bg-color);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    
+    
+       
+}
+.main-sec h2 {
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.main-sec h3 {
+    color: var(--logo-color);
+    font-size: 1.9em;
+    margin: 20px 0px; 
+}
+.main-btn {
+    position: relative;
+    text-align: center;
+    display: inline-block;
+    color: var(--bg-color);
+    background-color: #07343f;
+    padding: 15px 5px;
+    margin: 20px 0px;
+    font-size: 15px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+    box-shadow: 0px 10px 40px rgba(10, 62, 73, 0.5);
+    width: 150px;
+    overflow: hidden;
+    border-radius: 8px;
+    
+}
+
+.main-btn span:nth-child(1) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, rgb(4, 56, 70), rgb(195, 234, 245)) ;
+    animation: animate1 2s linear infinite;
+}
+@keyframes animate1 {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+.main-btn span:nth-child(2) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, rgb(4, 56, 70), rgb(195, 234, 245)) ;
+    animation: animate2 2s linear infinite;
+}
+@keyframes animate2 {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+.main-btn span:nth-child(3) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to left, rgb(4, 56, 70), rgb(195, 234, 245)) ;
+    animation: animate3 2s linear infinite;
+}
+@keyframes animate3 {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+.main-btn span:nth-child(4) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to top, rgb(4, 56, 70), rgb(195, 234, 245)) ;
+    animation: animate4 2s linear infinite;
+}
+@keyframes animate4 {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+.main-btn:hover {
+    transform: scale(0.93);
+    transition: 0.8s ease;
+}
+.social-icons {
+    fill: #fff;
+    height: 25px;
+    width: 20px;
+    margin: 0px 7px;
+}
+#services {
+    background-color: #f0f1f1;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    color: var(--logo-color);
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+.content {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+}
+.serv-title {
+    color: #fff;
+    text-shadow: 3px -3px 3px #0d0d0e;
+}
+.projects {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, rgba(4, 56, 70, 0.712), rgba(4, 56, 70, 0.76));
+}
+.card {
+    background-color: #fff;
+    width: 21.25em;
+    box-shadow: 0 5px 25px rgba(10, 62, 73, 0.30);
+    border-radius: 10px;
+    padding: 25px;
+    margin: 15px;
+    transition: 0.7s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.card:hover {
+    transform: scale(1.1);
+}
+.icon {
+    fill: var(--logo-color);
+    height: 60px;
+    width: 60px;  
+}
+
+.card h3 {
+    margin: 20px 0;
+    color: var(--logo-color);
+    font-size: 1.2em;
+}
+.card p {
+    text-align: center;
+}
+
+footer {
+    padding: 70px 150px;
+    background-color:#011316;
+     
+}
+.contact-icon {
+    width: 20px;
+    height: 20px;
+}
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    
+}
+.contactInfo {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+   
+}
+.container .contactInfo .box {
+    display: flex;
+    padding: 20px 0;
+}
+.container .contactInfo .box .contactIcon {
+    min-width: 50px;
+    height: 50px;
+    background-color: #f0f1f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+.container .contactInfo .box .text {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    font-size: 16px;
+    color: #f0f1f1;
+    font-weight: 300;
+}
+.container .contactInfo .box .text h3 {
+    font-weight: 500;
+    color: var(--logo-color);
+}
+.contactForm {
+    width: 40%;
+    padding: 40px;
+    background-color: #f0f1f1;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px 2px var(--logo-color);
+}
+.contactForm h2 {
+    font-size: 30px;
+    color: #333;
+    font-weight: 500;
+
+}
+.contactForm .inputBox {
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+}
+.contactForm .inputBox input, .contactForm .inputBox textarea {
+    width: 100%;
+    padding: 2px 0;
+    font-size: 16px;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 2px solid #333;
+    outline: none;
+    resize: none;
+    background: #f0f1f1;
+}
+.contactForm .inputBox span {
+    position: absolute;
+    left: 0;
+    padding: 2px 0;
+    font-size: 16px;
+    margin: 10px 0;
+    pointer-events: none;
+    transition: 0.5s;
+    color: #666;
+}
+.contactForm .inputBox input:focus ~ span,
+.contactForm .inputBox input:valid ~ span,
+.contactForm .inputBox textarea:focus ~ span,
+.contactForm .inputBox textarea:valid ~ span {
+    color: #0a84a1;
+    font-size: 12px;
+    transform: translateY(-20px);
+}
+.contactForm .inputBox input[type="submit"] {
+    width: 100px;
+    color: #fff;
+    background: var(--logo-color);
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 18px;
+    
+}
+
